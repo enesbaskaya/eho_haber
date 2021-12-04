@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
-      title: 'Blog Haber',
+      title: 'EHO HABER',
       home: Scaffold(
         drawer: Drawer(
           child: ListView(
