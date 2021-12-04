@@ -60,14 +60,17 @@ class _LoginViewState extends State<LoginView> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text("Kayıtlı değil misin?"),
+                children: [
+                  const Text("Kayıtlı değil misin?"),
                   TextButton(
-                    child: Text(
+                    child: const Text(
                       "Kayıt Ol",
                       style: TextStyle(color: Colors.red),
                     ),
-                    onPressed: null,
+                    onPressed: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage())),
                   ),
                 ],
               ),

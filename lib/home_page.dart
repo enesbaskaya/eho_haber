@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haber/login/login_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,11 +20,14 @@ class _HomePageState extends State<HomePage> {
               child: DrawerHeader(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text('Enes Başkaya'),
+                children: [
+                  const Text('Enes Başkaya'),
                   IconButton(
-                      onPressed: null,
-                      icon: Icon(
+                      onPressed: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginView())),
+                      icon: const Icon(
                         Icons.exit_to_app,
                       ))
                 ],
