@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:haber/constants/images.dart';
 import 'package:haber/home_page.dart';
 
 class RegisterView extends StatefulWidget {
@@ -13,23 +14,20 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Kayıt Ol'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "EHO HABER",
-                style: TextStyle(fontSize: 45),
+              const Image(
+                image: Images.whiteTextLogo,
+                width: 300,
               ),
               const SizedBox(height: 150),
-              const Text(
-                "Kayıt Ol",
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-                textAlign: TextAlign.left,
-              ),
               TextFormField(
                 decoration: const InputDecoration(
                   label: Text("Email adresiniz"),
@@ -47,8 +45,7 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 20,
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const HomePage())),
+                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage())),
                 child: const Text(
                   "Kayıt Ol",
                   style: TextStyle(

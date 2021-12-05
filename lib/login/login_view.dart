@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:haber/constants/images.dart';
 import 'package:haber/home_page.dart';
+import 'package:haber/register/register.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
               ),
               OutlinedButton(
-                onPressed: null,
+                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage())),
                 child: const Text(
                   "Giriş Yap",
                   style: TextStyle(
@@ -70,10 +71,7 @@ class _LoginViewState extends State<LoginView> {
                       "Kayıt Ol",
                       style: TextStyle(color: Colors.red),
                     ),
-                    onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomePage())),
+                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterView())),
                   ),
                 ],
               ),
