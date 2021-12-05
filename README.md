@@ -5,4 +5,4 @@
 - Ömer Furkan Karagöz
 - Hümeyra Mercan
 
-** Eho haber uygulaması, kullanıcıların güncel haberlere ulaşabileceği aynı zamanda güncel döviz kurları ve hava durumu bilgilerine ulaşabilecekleri bir sosyal haber uygulamasıdır. Kullanıcılar bu uygulamaya kullanıcı adı ve şifre ile giriş yapabilirler. Eğer üye değiller ise üye olabilirler. Uygulamada yayınlanacak tüm bilgiler api’lar sayesinde çekilerek kullanıcılara sunulacaktır.**
+ Eho haber uygulaması, kullanıcıların güncel haberlere ulaşabileceği aynı zamanda güncel döviz kurları ve hava durumu bilgilerine ulaşabilecekleri bir sosyal haber uygulamasıdır. Kullanıcılar bu uygulamaya kullanıcı adı ve şifre ile giriş yapabilirler. Eğer üye değiller ise üye olabilirler. Uygulamada yayınlanacak tüm bilgiler api’lar sayesinde çekilerek kullanıcılara sunulacaktır.
