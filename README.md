@@ -1,16 +1,8 @@
-# haber
+# FİNANSAL BİLGİ TEKNOLOJİLERİ DERSİ PROJE ÖDEVİ
+## EHO HABER UYGULAMASI
+###### Grup Üyeleri
+- Enes Başkaya
+- Ömer Furkan Karagöz
+- Hümeyra Mercan
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+** Eho haber uygulaması, kullanıcıların güncel haberlere ulaşabileceği aynı zamanda güncel döviz kurları ve hava durumu bilgilerine ulaşabilecekleri bir sosyal haber uygulamasıdır. Kullanıcılar bu uygulamaya kullanıcı adı ve şifre ile giriş yapabilirler. Eğer üye değiller ise üye olabilirler. Uygulamada yayınlanacak tüm bilgiler api’lar sayesinde çekilerek kullanıcılara sunulacaktır.**
