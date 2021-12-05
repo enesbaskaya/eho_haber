@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
-      title: 'EHO HABER',
+      title: 'Pixels News',
       home: const LoginView(),
     );
   }
