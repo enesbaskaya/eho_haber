@@ -24,10 +24,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const Text('Enes Başkaya'),
                   IconButton(
-                    onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginView())),
+                    onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginView())),
                     icon: const Icon(
                       Icons.exit_to_app,
                     ),
@@ -103,12 +100,11 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Center(
-                                  child: const Text(
-                                      "Tüm Apple ürünleri zamlandı! bu fiyatlara kalp dayanmaz..."),
+                                const Center(
+                                  child: Text("Tüm Apple ürünleri zamlandı! bu fiyatlara kalp dayanmaz..."),
                                 ),
                                 Row(
-                                  children: [
+                                  children: const [
                                     Text("9 saat önce paylaşıldı"),
                                     SizedBox(
                                       width: 10,
@@ -128,9 +124,19 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
+                  const SizedBox(height: 10),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
                   ),
+                  const SizedBox(height: 10),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity,
                     height: 140,
@@ -144,49 +150,25 @@ class _HomePageState extends State<HomePage> {
                     height: 140,
                     color: Colors.white10,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity,
                     height: 140,
                     color: Colors.white10,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity,
                     height: 140,
                     color: Colors.white10,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   Container(
                     width: double.infinity,
                     height: 140,
                     color: Colors.white10,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 140,
-                    color: Colors.white10,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 140,
-                    color: Colors.white10,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
