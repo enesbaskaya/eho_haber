@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haber/constants/images.dart';
 import 'package:haber/login/login_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,13 +24,14 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   const Text('Enes Başkaya'),
                   IconButton(
-                      onPressed: () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginView())),
-                      icon: const Icon(
-                        Icons.exit_to_app,
-                      ))
+                    onPressed: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginView())),
+                    icon: const Icon(
+                      Icons.exit_to_app,
+                    ),
+                  )
                 ],
               )),
             ),
@@ -77,10 +79,119 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('EHO Haber'),
+        title: const Image(
+          image: Images.whiteTextLogo,
+          height: 30,
+        ),
       ),
-      body: const Center(
-        child: Text('EHO HABER'),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10.0, bottom: 10),
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Center(
+                                  child: const Text(
+                                      "Tüm Apple ürünleri zamlandı! bu fiyatlara kalp dayanmaz..."),
+                                ),
+                                Row(
+                                  children: [
+                                    Text("9 saat önce paylaşıldı"),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text("*Teknoloji"),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          const Image(
+                            height: 124,
+                            width: 160,
+                            image: Images.imagePhone,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    color: Colors.white10,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
