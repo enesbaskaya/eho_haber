@@ -95,7 +95,7 @@ class HomePageView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Observer(builder: (_) {
-                  return Text(FirebaseAuth.instance.currentUser!.email ?? '');
+                  return Text(_homePageViewModel.getCurrentUser());
                 }),
                 IconButton(
                   onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginView())),

@@ -17,48 +17,50 @@ class RegisterView extends StatelessWidget {
       appBar: buildAppBar(),
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Image(
-                image: Images.whiteTextLogo,
-                width: 300,
-              ),
-              const SizedBox(height: 150),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                controller: _registerViewModel.emailController,
-                decoration: const InputDecoration(
-                  label: Text("Email adresiniz"),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Image(
+                  image: Images.whiteTextLogo,
+                  width: 300,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextFormField(
-                obscureText: true,
-                controller: _registerViewModel.passwordController,
-                decoration: const InputDecoration(
-                  label: Text("Parolanız"),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              OutlinedButton(
-                onPressed: () => _registerViewModel.userRegister(
-                    email: _registerViewModel.emailController.text, password: _registerViewModel.passwordController.text, context: context),
-                child: const Text(
-                  "Kayıt Ol",
-                  style: TextStyle(
-                    color: Colors.white,
+                const SizedBox(height: 150),
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  controller: _registerViewModel.emailController,
+                  decoration: const InputDecoration(
+                    label: Text("Email adresiniz"),
                   ),
                 ),
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                const SizedBox(
+                  height: 30,
                 ),
-              ),
-            ],
+                TextFormField(
+                  obscureText: true,
+                  controller: _registerViewModel.passwordController,
+                  decoration: const InputDecoration(
+                    label: Text("Parolanız"),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                OutlinedButton(
+                  onPressed: () => _registerViewModel.userRegister(
+                      email: _registerViewModel.emailController.text, password: _registerViewModel.passwordController.text, context: context),
+                  child: const Text(
+                    "Kayıt Ol",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
