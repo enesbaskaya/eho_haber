@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "611703647444",
+    "project_id": "pixelse-news",
+    "storage_bucket": "pixelse-news.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611703647444:android:20ac3e965b5e79a88a9f41",
+        "android_client_info": {
+          "package_name": "com.example.haber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611703647444-fjfhi6oe5lf17gs3qo9dd175uefgklem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYrtFS2kGESPnK_HgBN7l5OFSiPDpeTSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611703647444-fjfhi6oe5lf17gs3qo9dd175uefgklem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

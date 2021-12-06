@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:haber/constants/images.dart';
-import 'package:haber/home/view/home_page_view.dart';
+import 'package:haber/register/view-model/register_view_model.dart';
 
 class RegisterView extends StatelessWidget {
-  const RegisterView({Key? key}) : super(key: key);
+  RegisterView({Key? key}) : super(key: key);
+
+  final _registerViewModel = RegisterViewModel();
+
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +26,8 @@ class RegisterView extends StatelessWidget {
               ),
               const SizedBox(height: 150),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                controller: _registerViewModel.emailController,
                 decoration: const InputDecoration(
                   label: Text("Email adresiniz"),
                 ),
@@ -29,6 +36,8 @@ class RegisterView extends StatelessWidget {
                 height: 30,
               ),
               TextFormField(
+                obscureText: true,
+                controller: _registerViewModel.passwordController,
                 decoration: const InputDecoration(
                   label: Text("Parolanız"),
                 ),
@@ -37,7 +46,8 @@ class RegisterView extends StatelessWidget {
                 height: 20,
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView())),
+                onPressed: () => _registerViewModel.userRegister(
+                    email: _registerViewModel.emailController.text, password: _registerViewModel.passwordController.text, context: context),
                 child: const Text(
                   "Kayıt Ol",
                   style: TextStyle(

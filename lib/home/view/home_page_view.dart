@@ -1,9 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:haber/constants/images.dart';
+import 'package:haber/home/view-model/home_page_view_model.dart';
 import 'package:haber/login/view/login_view.dart';
 
 class HomePageView extends StatelessWidget {
-  const HomePageView({Key? key}) : super(key: key);
+  HomePageView({Key? key}) : super(key: key);
+
+  final _homePageViewModel = HomePageViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +94,9 @@ class HomePageView extends StatelessWidget {
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Enes Başkaya'),
+                Observer(builder: (_) {
+                  return Text(FirebaseAuth.instance.currentUser!.email ?? '');
+                }),
                 IconButton(
                   onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginView())),
                   icon: const Icon(

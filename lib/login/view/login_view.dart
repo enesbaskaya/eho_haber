@@ -40,7 +40,7 @@ class LoginView extends StatelessWidget {
                 height: 40,
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView())),
+                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePageView())),
                 child: const Text(
                   "Giriş Yap",
                   style: TextStyle(
@@ -63,7 +63,7 @@ class LoginView extends StatelessWidget {
                       "Kayıt Ol",
                       style: TextStyle(color: Colors.red),
                     ),
-                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterView())),
+                    onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterView())),
                   ),
                 ],
               ),
