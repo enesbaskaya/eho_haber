@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
       title: 'Pixels News',
-      home: const LoginView(),
+      home: LoginView(),
     );
   }
 }

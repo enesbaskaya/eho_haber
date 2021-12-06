@@ -95,10 +95,10 @@ class HomePageView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Observer(builder: (_) {
-                  return Text(_homePageViewModel.getCurrentUser());
+                  return Text(_homePageViewModel.getCurrentUser() ?? '');
                 }),
                 IconButton(
-                  onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginView())),
+                  onPressed: () => _homePageViewModel.userSigningOut(context: context),
                   icon: const Icon(
                     Icons.exit_to_app,
                   ),
