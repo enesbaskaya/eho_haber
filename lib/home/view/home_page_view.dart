@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:haber/constants/images.dart';
-import 'package:haber/login/login_view.dart';
+import 'package:haber/login/view/login_view.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageView extends StatelessWidget {
+  const HomePageView({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +69,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  AppBar buildAppBar() {
+    return AppBar(
+      centerTitle: true,
+      title: const Image(
+        image: Images.whiteTextLogo,
+        height: 30,
+      ),
+    );
+  }
+
   Drawer buildDrawerMenu(BuildContext context) {
     return Drawer(
       child: ListView(
@@ -104,31 +109,18 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          for (var i = 0; i <= 2; i++) buildCurrencyListTile(),
+          for (var i = 0; i <= 2; i++)
+            ListTile(
+              title: const Text('Euro'),
+              trailing: Wrap(
+                spacing: 12,
+                children: const [
+                  Text('15,413'),
+                  Text('15,413'),
+                ],
+              ),
+            ),
         ],
-      ),
-    );
-  }
-
-  ListTile buildCurrencyListTile() {
-    return ListTile(
-      title: const Text('Euro'),
-      trailing: Wrap(
-        spacing: 12,
-        children: const [
-          Text('15,413'),
-          Text('15,413'),
-        ],
-      ),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      centerTitle: true,
-      title: const Image(
-        image: Images.whiteTextLogo,
-        height: 30,
       ),
     );
   }

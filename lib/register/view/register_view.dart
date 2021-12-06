@@ -1,23 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:haber/constants/images.dart';
-import 'package:haber/home_page.dart';
+import 'package:haber/home/view/home_page_view.dart';
 
-class RegisterView extends StatefulWidget {
+class RegisterView extends StatelessWidget {
   const RegisterView({Key? key}) : super(key: key);
 
   @override
-  _RegisterViewState createState() => _RegisterViewState();
-}
-
-class _RegisterViewState extends State<RegisterView> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Kayıt Ol'),
-        centerTitle: true,
-      ),
+      appBar: buildAppBar(),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -45,7 +37,7 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 20,
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage())),
+                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView())),
                 child: const Text(
                   "Kayıt Ol",
                   style: TextStyle(
@@ -60,6 +52,13 @@ class _RegisterViewState extends State<RegisterView> {
           ),
         ),
       ),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      title: const Text('Kayıt Ol'),
+      centerTitle: true,
     );
   }
 }

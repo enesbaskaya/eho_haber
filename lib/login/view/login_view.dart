@@ -1,17 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:haber/constants/images.dart';
-import 'package:haber/home_page.dart';
-import 'package:haber/register/register.dart';
+import 'package:haber/home/view/home_page_view.dart';
+import 'package:haber/register/view/register_view.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
 
-  @override
-  _LoginViewState createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +15,7 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Image(
-                image: Images.whiteTextLogo,
-                width: 300,
-              ),
+              bildLogoImage(),
               const SizedBox(height: 150),
               TextFormField(
                 decoration: const InputDecoration(
@@ -48,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
               ),
               OutlinedButton(
-                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage())),
+                onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePageView())),
                 child: const Text(
                   "Giriş Yap",
                   style: TextStyle(
@@ -79,6 +71,13 @@ class _LoginViewState extends State<LoginView> {
           ),
         ),
       ),
+    );
+  }
+
+  Image bildLogoImage() {
+    return const Image(
+      image: Images.whiteTextLogo,
+      width: 300,
     );
   }
 }
