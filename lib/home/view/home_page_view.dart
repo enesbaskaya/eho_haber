@@ -23,7 +23,7 @@ class HomePageView extends StatelessWidget {
         child: FutureBuilder(
           future: _homePageViewModel.getNews(),
           builder: (BuildContext c, AsyncSnapshot s) {
-            if (!s.hasData) return Container();
+            if (!s.hasData) return const Center(child: CircularProgressIndicator());
             List<News> data = s.data;
             return ListView.builder(
                 itemCount: data.length,
@@ -112,7 +112,7 @@ class HomePageView extends StatelessWidget {
             child: FutureBuilder(
               future: _homePageViewModel.getWeather(),
               builder: (BuildContext c, AsyncSnapshot s) {
-                if (!s.hasData) return Container();
+                if (!s.hasData) return const Center(child: CircularProgressIndicator());
                 Weather homeList = s.data;
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +154,7 @@ class HomePageView extends StatelessWidget {
           Expanded(
             child: FutureBuilder(
               builder: (BuildContext c, AsyncSnapshot s) {
-                if (!s.hasData) return Container();
+                if (!s.hasData) return const Center(child: CircularProgressIndicator());
                 List<Currency> homeList = s.data;
                 return ListView.builder(
                     itemCount: homeList.length,
