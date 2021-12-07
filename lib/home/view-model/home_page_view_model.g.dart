@@ -18,6 +18,29 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
         .run(() => super.userSigningOut(context: context));
   }
 
+  final _$getCurrencyAsyncAction =
+      AsyncAction('_HomePageViewModelBase.getCurrency');
+
+  @override
+  Future<List<Currency>> getCurrency() {
+    return _$getCurrencyAsyncAction.run(() => super.getCurrency());
+  }
+
+  final _$getWeatherAsyncAction =
+      AsyncAction('_HomePageViewModelBase.getWeather');
+
+  @override
+  Future<Weather> getWeather() {
+    return _$getWeatherAsyncAction.run(() => super.getWeather());
+  }
+
+  final _$getNewsAsyncAction = AsyncAction('_HomePageViewModelBase.getNews');
+
+  @override
+  Future<List<News>> getNews() {
+    return _$getNewsAsyncAction.run(() => super.getNews());
+  }
+
   final _$_HomePageViewModelBaseActionController =
       ActionController(name: '_HomePageViewModelBase');
 

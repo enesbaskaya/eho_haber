@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:haber/constants/images.dart';
+import 'package:haber/home/model/currency.dart';
+import 'package:haber/home/model/news.dart';
+import 'package:haber/home/model/weather.dart';
 import 'package:haber/home/view-model/home_page_view_model.dart';
 import 'package:haber/login/view/login_view.dart';
 
@@ -16,61 +20,52 @@ class HomePageView extends StatelessWidget {
       drawer: buildDrawerMenu(context),
       appBar: buildAppBar(),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-            child: Column(
-              children: [
-                for (var i = 0; i < 10; i++) buildNewsCard(),
-              ],
-            ),
-          ),
+        child: FutureBuilder(
+          future: _homePageViewModel.getNews(),
+          builder: (BuildContext c, AsyncSnapshot s) {
+            if (!s.hasData) return Container();
+            List<News> data = s.data;
+            return ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return buildNewsCard(data[index]);
+                });
+          },
         ),
       ),
     );
   }
 
-  Column buildNewsCard() {
-    return Column(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 140,
-          color: Colors.white10,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Center(
-                        child: Text("Tüm Apple ürünleri zamlandı! bu fiyatlara kalp dayanmaz..."),
-                      ),
-                      Row(
-                        children: const [
-                          Text("9 saat önce paylaşıldı"),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text("*Teknoloji"),
-                        ],
-                      )
-                    ],
+  Container buildNewsCard(News data) {
+    return Container(
+      width: double.infinity,
+      height: 140,
+      color: Colors.white10,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    data.name!.toUpperCase(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
-                const Image(
-                  height: 124,
-                  width: 160,
-                  image: Images.imagePhone,
-                ),
-              ],
+                  const Text("*Genel"),
+                ],
+              ),
             ),
-          ),
+            Image(
+              height: 124,
+              width: 160,
+              image: NetworkImage(data.image!),
+            ),
+          ],
         ),
-        const SizedBox(height: 10)
-      ],
+      ),
     );
   }
 
@@ -86,7 +81,7 @@ class HomePageView extends StatelessWidget {
 
   Drawer buildDrawerMenu(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: Column(
         children: [
           SizedBox(
             height: 85,
@@ -94,9 +89,7 @@ class HomePageView extends StatelessWidget {
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Observer(builder: (_) {
-                  return Text(_homePageViewModel.getCurrentUser() ?? '');
-                }),
+                Text(_homePageViewModel.getCurrentUser() ?? ''),
                 IconButton(
                   onPressed: () => _homePageViewModel.userSigningOut(context: context),
                   icon: const Icon(
@@ -105,6 +98,48 @@ class HomePageView extends StatelessWidget {
                 )
               ],
             )),
+          ),
+          Container(
+            height: 120,
+            width: 200,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blueAccent, Colors.white, Colors.blueAccent],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+            ),
+            child: FutureBuilder(
+              future: _homePageViewModel.getWeather(),
+              builder: (BuildContext c, AsyncSnapshot s) {
+                if (!s.hasData) return Container();
+                Weather homeList = s.data;
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Sakarya',
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                    ),
+                    Text(
+                      homeList.degree!.toStringAsFixed(0) + '°',
+                      style: const TextStyle(color: Colors.black, fontSize: 26),
+                    ),
+                    Text(
+                      homeList.description.toString(),
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                    Text(
+                      homeList.day.toString(),
+                      style: const TextStyle(color: Colors.black, fontSize: 12),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
           ListTile(
             title: const Text(''),
@@ -116,17 +151,29 @@ class HomePageView extends StatelessWidget {
               ],
             ),
           ),
-          for (var i = 0; i <= 2; i++)
-            ListTile(
-              title: const Text('Euro'),
-              trailing: Wrap(
-                spacing: 12,
-                children: const [
-                  Text('15,413'),
-                  Text('15,413'),
-                ],
-              ),
+          Expanded(
+            child: FutureBuilder(
+              builder: (BuildContext c, AsyncSnapshot s) {
+                if (!s.hasData) return Container();
+                List<Currency> homeList = s.data;
+                return ListView.builder(
+                    itemCount: homeList.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(homeList[index].isim.toString()),
+                        trailing: Wrap(
+                          spacing: 12,
+                          children: [
+                            Text(homeList[index].alis.toString()),
+                            Text(homeList[index].satis.toString()),
+                          ],
+                        ),
+                      );
+                    });
+              },
+              future: _homePageViewModel.getCurrency(),
             ),
+          ),
         ],
       ),
     );
