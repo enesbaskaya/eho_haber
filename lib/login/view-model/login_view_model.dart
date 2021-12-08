@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:haber/home/view/home_page_view.dart';
+import '../../home/view/home_page_view.dart';
 import 'package:mobx/mobx.dart';
 part 'login_view_model.g.dart';
 

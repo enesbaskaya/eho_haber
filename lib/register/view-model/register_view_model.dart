@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:haber/home/view/home_page_view.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../home/view/home_page_view.dart';
+
 part 'register_view_model.g.dart';
 
 class RegisterViewModel = _RegisterViewModelBase with _$RegisterViewModel;

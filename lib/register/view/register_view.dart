@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:haber/constants/images.dart';
-import 'package:haber/register/view-model/register_view_model.dart';
+import '../../constants/images.dart';
+import '../view-model/register_view_model.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({Key? key}) : super(key: key);

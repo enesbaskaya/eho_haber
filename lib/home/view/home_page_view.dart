@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:haber/constants/images.dart';
-import 'package:haber/home/model/currency.dart';
-import 'package:haber/home/model/news.dart';
-import 'package:haber/home/model/weather.dart';
-import 'package:haber/home/view-model/home_page_view_model.dart';
-import 'package:haber/login/view/login_view.dart';
+import '../../constants/images.dart';
+import '../model/currency.dart';
+import '../model/news.dart';
+import '../model/weather.dart';
+import '../view-model/home_page_view_model.dart';
+import '../../login/view/login_view.dart';
 
 class HomePageView extends StatelessWidget {
   HomePageView({Key? key}) : super(key: key);

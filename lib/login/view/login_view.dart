@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:haber/constants/images.dart';
-import 'package:haber/login/view-model/login_view_model.dart';
-import 'package:haber/register/view/register_view.dart';
+import '../../constants/images.dart';
+import '../view-model/login_view_model.dart';
+import '../../register/view/register_view.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
