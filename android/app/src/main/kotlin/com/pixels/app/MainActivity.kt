@@ -1,4 +1,4 @@
-package com.example.haber
+package com.pixels.app
 
 import io.flutter.embedding.android.FlutterActivity
 

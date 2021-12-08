@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.haber">
+    package="com.pixels.app">
    <application
         android:label="Pixels News"
         android:icon="@mipmap/ic_launcher">
