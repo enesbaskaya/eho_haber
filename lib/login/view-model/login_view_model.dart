@@ -14,7 +14,8 @@ abstract class _LoginViewModelBase with Store {
 
   Future userLogin({String? email, String? password, BuildContext? context}) async {
     try {
-      if (password!.length < 6) await FirebaseAuth.instance.signInWithEmailAndPassword(email: email!, password: password);
+      if (password!.length < 6) ScaffoldMessenger.of(context!).showSnackBar(const SnackBar(content: Text('Şifreniz en az 6 haneli olmalı!!!')));
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email!, password: password);
       Navigator.pushReplacement(context!, MaterialPageRoute(builder: (context) => HomePageView()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
