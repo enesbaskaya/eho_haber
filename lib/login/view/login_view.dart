@@ -21,6 +21,7 @@ class LoginView extends StatelessWidget {
                 bildLogoImage(),
                 const SizedBox(height: 150),
                 TextFormField(
+                  keyboardType: TextInputType.emailAddress,
                   controller: _loginviewModel.emailController,
                   decoration: const InputDecoration(
                     label: Padding(

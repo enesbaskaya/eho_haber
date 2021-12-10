@@ -17,7 +17,10 @@ abstract class _RegisterViewModelBase with Store {
   @action
   Future userRegister({String? email, String? password, BuildContext? context}) async {
     try {
-      if (password!.length < 6) ScaffoldMessenger.of(context!).showSnackBar(const SnackBar(content: Text('Şifreniz en az 6 haneli olmalı!!!')));
+      if (password!.length < 6) {
+        ScaffoldMessenger.of(context!).showSnackBar(const SnackBar(content: Text('Şifreniz en az 6 haneli olmalı!!!')));
+        return;
+      }
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email!, password: password);
       Navigator.pushReplacement(context!, MaterialPageRoute(builder: (context) => HomePageView()));
     } on FirebaseAuthException catch (e) {
