@@ -17,7 +17,7 @@ abstract class _RegisterViewModelBase with Store {
   @action
   Future userRegister({String? email, String? password, BuildContext? context}) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email!, password: password!);
+      if (password!.length < 6) await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email!, password: password);
       Navigator.pushReplacement(context!, MaterialPageRoute(builder: (context) => HomePageView()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
