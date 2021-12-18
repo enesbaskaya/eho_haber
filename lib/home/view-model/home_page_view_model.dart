@@ -27,19 +27,25 @@ abstract class _HomePageViewModelBase with Store {
 
   @action
   Future<List<Currency>> getCurrency() async {
+    List<Currency> w = [];
     Response response = await get(
       Uri.parse('https://api.genelpara.com/embed/para-birimleri.json'),
     );
-    Map l = json.decode(response.body);
-    List<Currency> w = [];
-    for (var map in l.keys) {
-      w.add(Currency.fromMap(l[map]));
+    try {
+      // Map l = json.decode(response.body);
+      // for (var map in l.keys) {
+      //   w.add(Currency.fromMap(l[map]));
+      // }
+      return w;
+    } catch (e) {
+      debugPrint(e.toString());
+      return w;
     }
-    return w;
   }
 
   @action
-  Future<Weather> getWeather() async {
+  Future<Weather?> getWeather() async {
+    List<Weather> w = [];
     Response response = await get(
       Uri.parse('https://api.collectapi.com/weather/getWeather?data.lang=tr&data.city=sakarya'),
       headers: {
@@ -47,16 +53,21 @@ abstract class _HomePageViewModelBase with Store {
         "authorization": "apikey 6WoaWIEu5rfwTdKyYu3M3O:2qCPHjyHeqpDPYkgL8IXsY",
       },
     );
-    List l = json.decode(response.body)['result'];
-    List<Weather> w = [];
-    for (var map in l) {
-      w.add(Weather.fromMap(map));
+    try {
+      List l = json.decode(response.body)['result'];
+      for (var map in l) {
+        w.add(Weather.fromMap(map));
+      }
+      return w.first;
+    } catch (e) {
+      debugPrint(e.toString());
+      return w.first;
     }
-    return w.first;
   }
 
   @action
   Future<List<News>> getNews() async {
+    List<News> w = [];
     Response response = await get(
       Uri.parse('https://api.collectapi.com/news/getNews?country=tr&tag=general'),
       headers: {
@@ -64,11 +75,16 @@ abstract class _HomePageViewModelBase with Store {
         "authorization": "apikey 6WoaWIEu5rfwTdKyYu3M3O:2qCPHjyHeqpDPYkgL8IXsY",
       },
     );
-    List l = json.decode(response.body)['result'];
-    List<News> w = [];
-    for (var map in l) {
-      w.add(News.fromMap(map));
+
+    try {
+      List l = json.decode(response.body)['result'];
+      for (var map in l) {
+        w.add(News.fromMap(map));
+      }
+      return w;
+    } catch (e) {
+      debugPrint(e.toString());
+      return w;
     }
-    return w;
   }
 }

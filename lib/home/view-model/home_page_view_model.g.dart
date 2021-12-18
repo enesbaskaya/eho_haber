@@ -30,7 +30,7 @@ mixin _$HomePageViewModel on _HomePageViewModelBase, Store {
       AsyncAction('_HomePageViewModelBase.getWeather');
 
   @override
-  Future<Weather> getWeather() {
+  Future<Weather?> getWeather() {
     return _$getWeatherAsyncAction.run(() => super.getWeather());
   }
 

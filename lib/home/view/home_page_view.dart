@@ -150,6 +150,7 @@ class HomePageView extends StatelessWidget {
           ),
           Expanded(
             child: FutureBuilder(
+              future: _homePageViewModel.getCurrency(),
               builder: (BuildContext c, AsyncSnapshot s) {
                 if (!s.hasData) return const Center(child: CircularProgressIndicator());
                 List<Currency> homeList = s.data;
@@ -168,7 +169,6 @@ class HomePageView extends StatelessWidget {
                       );
                     });
               },
-              future: _homePageViewModel.getCurrency(),
             ),
           ),
         ],
