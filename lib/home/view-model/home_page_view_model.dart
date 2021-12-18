@@ -32,10 +32,10 @@ abstract class _HomePageViewModelBase with Store {
       Uri.parse('https://api.genelpara.com/embed/para-birimleri.json'),
     );
     try {
-      // Map l = json.decode(response.body);
-      // for (var map in l.keys) {
-      //   w.add(Currency.fromMap(l[map]));
-      // }
+      Map l = json.decode(response.body);
+      for (var map in l.keys) {
+        w.add(Currency.fromMap(l[map]));
+      }
       return w;
     } catch (e) {
       debugPrint(e.toString());
